@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import './App.css';
+import { useState } from 'react';
 
 const contents = [
   {
@@ -22,8 +21,7 @@ const useTab = (initialVal) => {
 };
 
 function App() {
-  // useTab 훅을 호출하여 초기값을 0으로 설정
-  const { idx, changeIdx } = useTab(1);
+  const { idx, changeIdx } = useTab(0);
 
   return (
     <div className='App'>
@@ -32,6 +30,7 @@ function App() {
           <button
             key={index}
             onClick={() => {
+                // 질문!!!! changeIdx(idx)로 idx를 넣으면 왜 변화가 없는거죵!?
               changeIdx(idx);
             }}
           >
@@ -46,12 +45,6 @@ function App() {
 
 export default App;
 
-// useTab을 먼저 정의
-// useTab을 사용할 곳에서 어떻게 값을 받을지 확인
-// 하나의 값을 넣었을때, 어떻게 화면에 나와야하는지 확인
-// 다른 트리거를 통해 어떻게 화면이 바껴야하는지 확인
-
 // initialIndex를 0으로 초기값 받아서 초기화면에 어떻게 나와야하나 확인
-// 1탭을 클릭했을때, 일어나는 변화를 setIndex로 받기
-// setIndex로 index 변수의 변화를 주기
+// 1탭을 클릭했을때, 일어나는 변화를 setIndex로 업데이트
 // contents[index]를 불러와서 버튼 밑에 값에 할당
